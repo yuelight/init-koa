@@ -2,9 +2,10 @@
  * Module dependencies.
  */
 
-const app = require('./config/app');
-const debug = require('debug')('init-koa:server');
-const http = require('http');
+import app from './config/app';
+import Debug from 'debug';
+const debug = Debug('init-koa:server');
+import http from 'http';
 
 class Server {
 	constructor() {

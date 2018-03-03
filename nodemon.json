@@ -4,6 +4,9 @@
 		".git",
 		"node_modules/**/node_modules"
 	],
+	"execMap": {
+		"js": "babel-node"
+	},
 	"verbose": true,
 	"events": {
 		"restart": "osascript -e 'display notification \"Koa Server Restart\" with title \"nodemon\"'"

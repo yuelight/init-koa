@@ -1,4 +1,4 @@
-module.exports = class IndexController {
+export default class IndexController {
 	constructor(router) {
 		Object.assign(this, {
 			router
@@ -28,4 +28,4 @@ module.exports = class IndexController {
 			title: 'koa2 json'
 		};
 	}
-};
+}

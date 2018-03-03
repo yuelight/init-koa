@@ -1,12 +1,13 @@
-const Koa = require('koa');
+import Koa from 'koa';
 const app = new Koa();
-const views = require('koa-views');
-const router = require('koa-router')();
-const json = require('koa-json');
-const onerror = require('koa-onerror');
-const bodyparser = require('koa-bodyparser');
-const logger = require('koa-logger');
-const glob = require('glob');
+import views from 'koa-views';
+import Router from 'koa-router';
+const router = Router();
+import json from 'koa-json';
+import onerror from 'koa-onerror';
+import bodyparser from 'koa-bodyparser';
+import logger from 'koa-logger';
+import glob from 'glob';
 
 // error handler
 onerror(app);
@@ -35,7 +36,7 @@ app.use(async (ctx, next) => {
 (async () => {
 	const ctls = await glob.sync(`${__dirname}/../app/controller/**/*.js`);
 	ctls.forEach(item => {
-		const ctrl = require(item);
+		const ctrl = require(item).default;
 		new ctrl(router);
 	});
 })();
@@ -46,4 +47,4 @@ app.on('error', (err, ctx) => {
 	console.error('server error', err, ctx);
 });
 
-module.exports = app;
+export default app;
