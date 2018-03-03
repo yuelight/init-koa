@@ -1,28 +1,22 @@
+import {
+	controller,
+	get,
+	post
+} from 'koa-dec-router';
+
+@controller('')
 export default class IndexController {
-	constructor(router) {
-		Object.assign(this, {
-			router
-		});
-
-		this.routes();
-	}
-
-	routes() {
-		this.router.get('/', this.r_index);
-		this.router.get('/string', this.r_string);
-		this.router.get('/json', this.r_json);
-	}
-
+	@get('/')
 	async r_index(ctx, next) {
 		await ctx.render('index', {
 			title: 'Hello Koa 2!'
 		});
 	}
-
+	@get('/string')
 	async r_string(ctx, next) {
 		ctx.body = 'koa2 string';
 	}
-
+	@get('/json')
 	async r_json(ctx, next) {
 		ctx.body = {
 			title: 'koa2 json'
