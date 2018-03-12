@@ -1,15 +1,15 @@
 import Koa from 'koa';
 const app = new Koa();
 import views from 'koa-views';
-import DecRouter from 'koa-dec-router';
+import { Route } from 'koa-decorators-router';
 import json from 'koa-json';
 import onerror from 'koa-onerror';
 import bodyparser from 'koa-bodyparser';
 import logger from 'koa-logger';
-import glob from 'glob';
 
-const decRouter = DecRouter({
-	controllersDir: `${__dirname}/../app/controller`
+const router = new Route({
+	app,
+	apiDirPath: `${__dirname}/../app/controller`
 });
 
 // error handler
@@ -36,7 +36,7 @@ app.use(async (ctx, next) => {
 });
 
 // routes
-app.use(decRouter.router.routes(), decRouter.router.allowedMethods());
+router.registerRouters();
 
 // error-handling
 app.on('error', (err, ctx) => {

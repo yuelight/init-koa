@@ -2,7 +2,7 @@ import {
 	controller,
 	get,
 	post
-} from 'koa-dec-router';
+} from 'koa-decorators-router';
 
 @controller('')
 export default class IndexController {
