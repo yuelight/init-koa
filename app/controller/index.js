@@ -8,7 +8,7 @@ import {
 export default class IndexController {
 	@get('/')
 	async r_index(ctx, next) {
-		await ctx.render('index', {
+		await ctx.render('pages/index', {
 			title: 'Hello Koa 2!'
 		});
 	}
