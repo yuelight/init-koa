@@ -5,6 +5,7 @@
   "scripts": {
     "start": "babel-node server",
     "dev": "./node_modules/.bin/nodemon",
+    "prd": "pm2 start ecosystem.yml",
     "lint": "eslint --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

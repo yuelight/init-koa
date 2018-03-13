@@ -65,8 +65,8 @@ class Server {
 		}
 
 		const bind = typeof port === 'string'
-			? 'Pipe ' + port
-			: 'Port ' + port;
+			? 'Pipe ' + this.port
+			: 'Port ' + this.port;
 
 		// handle specific listen errors with friendly messages
 		switch (error.code) {
